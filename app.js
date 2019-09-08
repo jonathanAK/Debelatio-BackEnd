@@ -1,5 +1,4 @@
 const cookieSession = require('cookie-session');
-const keys = require('./config/keys');
 const express = require('express');
 const app = express();
 
@@ -17,11 +16,6 @@ app.use(express.urlencoded({ extended: true }));
 // set view engine
 app.set('view engine', 'ejs');
 
-//set up Authentication cookies
-app.use(cookieSession({
-    maxAge: 1000 * 60 * 60 * 24 * 7,
-    keys:[keys.session.cookieKey]
-}));
 //set up Views
 app.use('/resources',express.static('public'));
 
